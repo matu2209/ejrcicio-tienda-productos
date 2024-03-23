@@ -26,4 +26,12 @@ public class Teclado extends Electronico{
     public void setNumerico(boolean numerico) {
         this.numerico = numerico;
     }
+
+    @Override
+    public String toString() {
+        return
+                super.toString() + "mecanico=" + mecanico +
+                ", numerico=" + numerico +
+                "} ";
+    }
 }

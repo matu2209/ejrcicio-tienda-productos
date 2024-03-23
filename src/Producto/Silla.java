@@ -16,4 +16,11 @@ public class Silla extends Noelectrinico{
     public void setMaterial(String material) {
         this.material = material;
     }
+
+    @Override
+    public String toString() {
+        return  super.toString()+"Silla " +
+                "material='" + material + '\'' +
+                "} ";
+    }
 }

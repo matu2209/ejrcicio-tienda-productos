@@ -26,4 +26,12 @@ public class Mouse extends Electronico{
     public void setIluminado(boolean iluminado) {
         this.iluminado = iluminado;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Mouse " +
+                "gamer=" + gamer +
+                ", iluminado=" + iluminado +
+                "} ";
+    }
 }

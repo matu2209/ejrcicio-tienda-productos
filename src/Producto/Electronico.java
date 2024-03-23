@@ -16,4 +16,10 @@ public class Electronico extends Producto {
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Categoria Electronico " +
+                "marca='" + marca + '\''+", ";
+    }
 }

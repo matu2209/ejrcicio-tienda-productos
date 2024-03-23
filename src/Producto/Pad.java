@@ -17,4 +17,10 @@ public class Pad extends Noelectrinico{
         this.tamano = tamano;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Pad " +
+                "tamano=" + tamano +
+                "} ";
+    }
 }

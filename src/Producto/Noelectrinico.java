@@ -15,4 +15,11 @@ public class Noelectrinico extends Producto{
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Noelectrinico " +
+                "marca='" + marca + '\'' +
+                " ";
+    }
 }

@@ -46,7 +46,6 @@ public class Producto {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
-                ", cantidad=" + cantidad +
-                '}';
+                ", cantidad=" + cantidad + ", ";
     }
 }
