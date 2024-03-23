@@ -20,7 +20,7 @@ public class Producto {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void cambiar(float precio) {
         this.precio = precio;
     }
 
@@ -28,8 +28,15 @@ public class Producto {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void agregarCantidad(int cantidad) {//agrega cantidad a lo que hay en stock
+        this.cantidad += cantidad;
+    }
+
+    public void restarProducto(){//valida que haya stock
+        if (this.cantidad == 0)
+            System.out.println("No hay stock del producto elegido!");
+        else
+            this.cantidad--;
     }
 
     public void restarProducto(){//valida que haya stock

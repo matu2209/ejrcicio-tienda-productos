@@ -1,6 +1,7 @@
 import Factura.*;
 import Producto.*;
 import Cliente.*;
+import Tienda.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,19 +13,9 @@ public class Main {
         Silla sillaOficina = new Silla(125000,3,"Silla Oficina Clasica","Home Office","Cuero");
         Pantalla monitorGamer = new Pantalla(255000,4,"Monitor Gamer","Asus",27);
 
-        System.out.println(tecladoGamer);
-        System.out.println(monitorGamer);
-        System.out.println(tecladoGenerico);
-        System.out.println(muoseGamer);
-        System.out.println(sillaOficina);
-
-
         //creamos usuario y tambien los mostramos
         Cliente c1 = new Cliente("Matias","Galvan","matu@gmail.com");
         Cliente c2 = new Cliente("Rosana","Cardoso","roxi@hotmail.com");
-
-        System.out.println(c1);
-        System.out.println(c2);
 
         //creamos una factura
 
