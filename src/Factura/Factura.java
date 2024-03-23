@@ -23,5 +23,15 @@ public class Factura {
         this.monto = monto;
     }
 
+    public void calcularMonto(){
+        for (Producto producto : productos){
+            this.monto += producto.getPrecio();
+        }
+    }
+
+    public void agregarProducto(Producto producto){
+        this.productos.add(producto);
+    }
+
 
 }
