@@ -32,6 +32,13 @@ public class Producto {
         this.cantidad = cantidad;
     }
 
+    public void restarProducto(){//valida que haya stock
+        if (this.cantidad == 0)
+            System.out.println("No hay stock del producto elegido!");
+        else
+            this.cantidad--;
+    }
+
     public String getNombre() {
         return nombre;
     }

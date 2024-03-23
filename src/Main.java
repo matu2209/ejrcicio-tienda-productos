@@ -1,7 +1,6 @@
-import Cliente.Cliente;
+import Factura.*;
 import Producto.*;
 import Cliente.*;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -27,9 +26,18 @@ public class Main {
         System.out.println(c1);
         System.out.println(c2);
 
+        //creamos una factura
 
+        Factura f1 = new Factura(c1);
 
+        f1.agregarProducto(monitorGamer);
+        f1.agregarProducto(tecladoGamer);
+        f1.agregarProducto(muoseGamer);
+        f1.agregarProducto(muoseGamer);
 
+        //calculamos el monto
+        f1.calcularMonto();
+        System.out.println(f1);
 
 
     }
