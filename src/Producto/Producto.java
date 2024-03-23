@@ -1,4 +1,4 @@
-package PRODUCTO;
+package Producto;
 
 public class Producto {
 

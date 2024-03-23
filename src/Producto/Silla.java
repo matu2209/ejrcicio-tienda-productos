@@ -1,4 +1,4 @@
-package PRODUCTO;
+package Producto;
 
 public class Silla extends Noelectrinico{
 

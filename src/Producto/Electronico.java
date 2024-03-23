@@ -1,4 +1,4 @@
-package PRODUCTO;
+package Producto;
 
 public class Electronico extends Producto {
     private String marca;
