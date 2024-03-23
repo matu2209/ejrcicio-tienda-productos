@@ -31,7 +31,6 @@ public class Mouse extends Electronico{
     public String toString() {
         return super.toString() + "Mouse " +
                 "gamer=" + gamer +
-                ", iluminado=" + iluminado +
-                "} ";
+                ", iluminado=" + iluminado;
     }
 }

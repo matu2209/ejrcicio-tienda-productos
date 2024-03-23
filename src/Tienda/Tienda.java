@@ -7,6 +7,7 @@ import Factura.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Tienda {
@@ -171,7 +172,6 @@ public class Tienda {
         int opcion;
         Scanner lecturaDato = new Scanner(System.in);
         do {
-            //limpiarPantalla();
             System.out.println("Menu\n \t1-Agregar cliente\n \t2-Agregar productos\n \t3-Vender\n \t0-Salir");
             /*1- agregar cliente
               2- agregar producto
@@ -183,6 +183,10 @@ public class Tienda {
                     break;
                 case 2:
                     agregarProducto();
+                    break;
+                case 3:
+                    mostrarProductosElectronicos();
+                    mostrarProductosNoElectronicos();
                     break;
                 default:
             }
@@ -208,7 +212,22 @@ public class Tienda {
         }
     }
 
-       /*public void vender(){
+    public void mostrarProductosElectronicos(){
+        System.out.println("Productos electronicos");
+        for (Producto producto: this.productos){
+            if (producto instanceof Electronico && producto.getCantidad()>0)
+                System.out.println("\t"+producto);
+        }
+    }
+
+    public void mostrarProductosNoElectronicos(){
+        System.out.println("Productos no electronicos");
+        for (Producto producto:this.productos){
+            if (producto instanceof Noelectrinico && producto.getCantidad()>0)
+                System.out.println("\t"+producto);
+        }
+    }
+    public void vender(){
         int opcion;
         Scanner lectura = new Scanner(System.in);
         System.out.println("Ingrese nombre");
@@ -216,14 +235,21 @@ public class Tienda {
         Cliente cliente = buscarCliente(nombre);
         Factura factura = new Factura(cliente);
         do{
-            mostrarTodosProductos();
-            opcion = lectura.nextInt();
-            if (opcion!=0)
-                factura.agregarProducto(this.productos.get(opcion-1));
+            System.out.println("Ingrese el Id del producto");
+            opcion = lectura.nextInt(); lectura.nextLine();///me quede por aca
+            //if (buscarProductoPorId(opcion))
+                //factura.agregarProducto(this.productos.get(opcion-1));
         }
         while (opcion!=0);
         factura.calcularMonto();
-        System.out.println(factura);
-    }*/
+    System.out.println(factura);
+    }
+    public Producto buscarProductoPorId(int id){
 
+        for (Producto producto:this.productos){
+            if (producto.getId() == id)
+                return producto;
+        }
+        return null;
+    }
 }

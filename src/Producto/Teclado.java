@@ -31,7 +31,6 @@ public class Teclado extends Electronico{
     public String toString() {
         return
                 super.toString() + "mecanico=" + mecanico +
-                ", numerico=" + numerico +
-                "} ";
+                ", numerico=" + numerico;
     }
 }

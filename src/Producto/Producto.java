@@ -1,5 +1,7 @@
 package Producto;
 
+import java.util.Objects;
+
 public class Producto {//agregar abstrac para no crear instancias de producto
 
     private static int contId = 0;
@@ -12,12 +14,23 @@ public class Producto {//agregar abstrac para no crear instancias de producto
         contId++;
         this.id = contId;
         this.nombre = nombre;
-        this.precio = precio;
-        this.cantidad = cantidad;
+        if (precio>0)
+            this.precio = precio;
+        else
+            this.precio = 1000;
+        if (cantidad>0)
+            this.cantidad = cantidad;
+        else
+            this.cantidad=0;
+
     }
     //agregar validaciones de para stock y precio!
     public float getPrecio() {
         return precio;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void cambiar(float precio) {
@@ -49,7 +62,7 @@ public class Producto {//agregar abstrac para no crear instancias de producto
 
     @Override
     public String toString() {
-        return "Producto{" +
+        return
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +

@@ -20,7 +20,6 @@ public class Silla extends Noelectrinico{
     @Override
     public String toString() {
         return  super.toString()+"Silla " +
-                "material='" + material + '\'' +
-                "} ";
+                "material='" + material + '\'';
     }
 }
