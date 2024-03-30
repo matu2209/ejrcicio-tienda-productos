@@ -1,6 +1,6 @@
 package Producto;
 
-public class Electronico extends Producto {
+public class Electronico extends Producto {//agreagar abstrac para no poder crear isntancia de electronica par ano electronica
     private String marca;
 
 

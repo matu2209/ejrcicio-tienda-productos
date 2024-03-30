@@ -1,6 +1,6 @@
 package Producto;
 
-public class Producto {
+public class Producto {//agregar abstrac para no crear instancias de producto
 
     private static int contId = 0;
     private int id;
@@ -15,7 +15,7 @@ public class Producto {
         this.precio = precio;
         this.cantidad = cantidad;
     }
-
+    //agregar validaciones de para stock y precio!
     public float getPrecio() {
         return precio;
     }
@@ -30,13 +30,6 @@ public class Producto {
 
     public void agregarCantidad(int cantidad) {//agrega cantidad a lo que hay en stock
         this.cantidad += cantidad;
-    }
-
-    public void restarProducto(){//valida que haya stock
-        if (this.cantidad == 0)
-            System.out.println("No hay stock del producto elegido!");
-        else
-            this.cantidad--;
     }
 
     public void restarProducto(){//valida que haya stock
