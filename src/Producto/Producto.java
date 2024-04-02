@@ -45,11 +45,11 @@ public class Producto {//agregar abstrac para no crear instancias de producto
         this.cantidad += cantidad;
     }
 
-    public void restarProducto(){//valida que haya stock
+    public void sacarCantidadProducto(int resto){//valida que haya stock
         if (this.cantidad == 0)
             System.out.println("No hay stock del producto elegido!");
         else
-            this.cantidad--;
+            this.cantidad-=resto;
     }
 
     public String getNombre() {

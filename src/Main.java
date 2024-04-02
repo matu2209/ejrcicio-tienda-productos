@@ -1,3 +1,4 @@
+import Carrito.Carrito;
 import Factura.*;
 import Producto.*;
 import Cliente.*;
@@ -12,7 +13,7 @@ public class Main {
 
 
         //Se crean productos y se muestran
-        Teclado tecladoGamer = new Teclado(36000,0,"Teclado Gamer","Logitech",true,false);
+        Teclado tecladoGamer = new Teclado(36000,3,"Teclado Gamer","Logitech",true,false);
         Teclado tecladoGenerico = new Teclado(18999,10,"Teclado Generico","Lenovo",false,true);
         Mouse muoseGamer = new Mouse(21999,4,"Mouse Gamer","Logitech",true,true);
         Silla sillaOficina = new Silla(125000,3,"Silla Oficina Clasica","Home Office","Cuero");
@@ -41,7 +42,12 @@ public class Main {
         f1.calcularMonto();
         System.out.println(f1);
         */
-
+        /*Carrito carrito = new Carrito();
+        carrito.agregarProducto(tecladoGamer,2);
+        carrito.agregarProducto(tecladoGenerico,2);
+        carrito.agregarProducto(tecladoGamer,1);
+        carrito.mostrarCarrito();
+        t1.mostrarProductosElectronicos();*/
         t1.gestionTienda();
 
 
