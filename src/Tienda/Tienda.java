@@ -3,10 +3,12 @@ package Tienda;
 import Producto.*;
 import Cliente.*;
 import Factura.*;
+import Carrito.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Tienda {
@@ -29,7 +31,7 @@ public class Tienda {
         String nombre, apellido,email; long dni;
         Scanner lectura = new Scanner(System.in);
         System.out.println("Ingrese el DNI del usuario");
-        dni = lectura.nextLong();
+        dni = lectura.nextLong(); lectura.nextLine();
         System.out.println("Ingrese nombre");
         nombre = lectura.nextLine();
         System.out.println("Ingrese apellido");
@@ -168,26 +170,56 @@ public class Tienda {
     }
 
     public void gestionTienda(){
-        int opcion;
+        int opcionMenuPrincipal, opcioneMenuCarrito;
         Scanner lecturaDato = new Scanner(System.in);
         do {
-            //limpiarPantalla();
-            System.out.println("Menu\n \t1-Agregar cliente\n \t2-Agregar productos\n \t3-Vender\n \t0-Salir");
+            System.out.println("Menu\n \t1-Agregar cliente\n \t2-Agregar productos\n \t3-Nuevo Carrito\n\t0-Salir");
             /*1- agregar cliente
               2- agregar producto
-              3- comprar---- mostrar productos electronicos // no electronicos --// mostrar usuarios --> buscar el ususario por id -- // mostrar los que tienen stock ---// elegir productos por id!*/
-            opcion = lecturaDato.nextInt();
-            switch (opcion) {
+              3- vender---- mostrar productos electronicos // no electronicos --// mostrar usuarios --> buscar el ususario por id -- // mostrar los que tienen stock ---// elegir productos por id!*/
+            opcionMenuPrincipal = lecturaDato.nextInt();
+            switch (opcionMenuPrincipal) {
                 case 1:
                     agregarCliente();
                     break;
                 case 2:
                     agregarProducto();
                     break;
+                case 3:
+                    Carrito carrito = new Carrito();
+                    do {
+                        mostrarProductosElectronicos();
+                        mostrarProductosNoElectronicos();
+                        System.out.println("ingrese id del producto");
+                        int idProd = lecturaDato.nextInt();
+                        lecturaDato.nextLine();
+                        System.out.println("Ingrese cantidad productos");
+                        int cant = lecturaDato.nextInt();
+                        lecturaDato.nextLine();
+                        if (buscarProductoPorId(idProd)!= null)
+                            carrito.agregarProducto(buscarProductoPorId(idProd),cant);
+                        else
+                            System.out.println("Ingreso un id no valido");
+                        System.out.println("ingrese 0 para finalizar el carrito");
+                        opcioneMenuCarrito = lecturaDato.nextInt();
+                        lecturaDato.nextLine();
+                    }while (opcioneMenuCarrito!=0);
+                    //carrito.mostrarCarrito();
+                    mostrarTodosClientes();
+                    System.out.println("Para finalizar la compra ingrese el nombre del cliente");
+                    Cliente cliente = buscarCliente(lecturaDato.nextLine());//podria ser un while hasta que encuentre el cliente
+                    if (cliente!=null){
+                        Factura factura = new Factura(cliente,carrito);
+                        factura.impirmirFactura();
+                        agregarFactura(factura);
+                    }
+                    else
+                        System.out.println("Cliente no encontrado");
+                    break;
                 default:
             }
 
-        } while (opcion != 0);
+        } while (opcionMenuPrincipal != 0);
     }
 
     public void mostrarTodosClientes(){
@@ -208,22 +240,43 @@ public class Tienda {
         }
     }
 
-       /*public void vender(){
+    public void mostrarProductosElectronicos(){
+        System.out.println("Productos electronicos");
+        for (Producto producto: this.productos){
+            if (producto instanceof Electronico && producto.getCantidad()>0)
+                System.out.println("\t"+producto);
+        }
+    }
+
+    public void mostrarProductosNoElectronicos(){
+        System.out.println("Productos no electronicos");
+        for (Producto producto:this.productos){
+            if (producto instanceof Noelectrinico && producto.getCantidad()>0)
+                System.out.println("\t"+producto);
+        }
+    }
+    public void vender(){ //ahora seria buscarProducto-> mandar producto y cantidad al carrito --> carrito valida y queda a la espera de mas items
         int opcion;
         Scanner lectura = new Scanner(System.in);
         System.out.println("Ingrese nombre");
         String nombre = lectura.nextLine();
         Cliente cliente = buscarCliente(nombre);
-        Factura factura = new Factura(cliente);
+        /*Factura factura = new Factura(cliente);
         do{
-            mostrarTodosProductos();
-            opcion = lectura.nextInt();
-            if (opcion!=0)
-                factura.agregarProducto(this.productos.get(opcion-1));
+            System.out.println("Ingrese el Id del producto");
+            opcion = lectura.nextInt(); lectura.nextLine();///me quede por aca
+            //if (buscarProductoPorId(opcion))
+                //factura.agregarProducto(this.productos.get(opcion-1));
         }
         while (opcion!=0);
-        factura.calcularMonto();
-        System.out.println(factura);
-    }*/
+    System.out.println(factura);*/
+    }
+    public Producto buscarProductoPorId(int id){
 
+        for (Producto producto:this.productos){
+            if (producto.getId() == id)
+                return producto;
+        }
+        return null;
+    }
 }

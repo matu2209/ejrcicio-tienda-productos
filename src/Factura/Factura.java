@@ -6,47 +6,41 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import Carrito.*;
 
 public class Factura {
     private static int contId=0;
     private int id;
     private LocalDate fecha;
     private Cliente cliente;
-    private List<Producto> productos;
+    private Carrito carrito;
     private float monto;
 
-    public Factura(Cliente cliente) {
+    public Factura(Cliente cliente, Carrito carrito) {
         contId++;
         this.id = contId;
         this.fecha = LocalDate.now();
-        this.productos = new ArrayList<>();
+        this.carrito = carrito; //ahora acepta el carrito con los productos agregados y la cantidad de ese producto
         this.cliente = cliente;
-        this.monto = 0;
+        this.monto = carrito.getTotal();
     }
 
-    public void calcularMonto(){
-        for (Producto producto : productos){
-            this.monto += producto.getPrecio();
-        }
-    }
+    public void impirmirFactura(){
 
-    //agregar producto restar stock
-    public void agregarProducto(Producto producto){
-        producto.restarProducto();
-        this.productos.add(producto);
-    }
+        System.out.printf("Factura numero %20s Fecha %10s\n", this.id,this.fecha);
+        this.carrito.mostrarCarrito();
+        System.out.printf("Total %40.2f",this.monto);
 
-    public float getMonto() {
-        return monto;
-    }
 
+
+    }
     @Override
     public String toString() {
         return "Factura{" +
                 "id=" + id +
                 ", fecha=" + fecha +
                 ", " + cliente +
-                ", productos=" + productos.stream().map(producto -> producto.getNombre()).collect(Collectors.toList()) +
+                ", productos=" + carrito +
                 ", monto=" + monto +
                 '}';
     }

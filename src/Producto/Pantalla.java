@@ -20,7 +20,6 @@ public class Pantalla extends Electronico{
     @Override
     public String toString() {
         return super.toString() +
-                "pulgadas=" + pulgadas +
-                "}";
+                "pulgadas=" + pulgadas;
     }
 }
