@@ -1,6 +1,4 @@
-package Producto;
-
-import java.util.Objects;
+package producto;
 
 public class Producto {//agregar abstrac para no crear instancias de producto
 
@@ -60,12 +58,16 @@ public class Producto {//agregar abstrac para no crear instancias de producto
         this.nombre = nombre;
     }
 
-    @Override
-    public String toString() {
-        return
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", precio=" + precio +
-                ", cantidad=" + cantidad + ", ";
+    public void mostrarProducto(){
+        System.out.printf("%5d %20s %10.2f %5d",this.getId(), this.getNombre(), this.getPrecio(),this.getCantidad());
     }
+
+//    @Override
+//    public String toString() {
+//        return
+//                "id=" + id +
+//                ", nombre='" + nombre + '\'' +
+//                ", precio=" + precio +
+//                ", cantidad=" + cantidad + ", ";
+//    }
 }

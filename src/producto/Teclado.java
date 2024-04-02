@@ -1,4 +1,4 @@
-package Producto;
+package producto;
 
 public class Teclado extends Electronico{
 
@@ -28,9 +28,15 @@ public class Teclado extends Electronico{
     }
 
     @Override
-    public String toString() {
-        return
-                super.toString() + "mecanico=" + mecanico +
-                ", numerico=" + numerico;
+    public void mostrarProducto() {
+        super.mostrarProducto();
+        System.out.printf("%10s %10s\n",this.isMecanico() ? "Mecanico, " : "No mecanico, ",this.isNumerico() ? "Numerico" : "No numerico");
     }
+
+//    @Override
+//    public String toString() {
+//        return
+//                super.toString() + "mecanico=" + mecanico +
+//                ", numerico=" + numerico;
+//    }
 }

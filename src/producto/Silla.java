@@ -1,4 +1,4 @@
-package Producto;
+package producto;
 
 public class Silla extends Noelectrinico{
 
@@ -18,8 +18,14 @@ public class Silla extends Noelectrinico{
     }
 
     @Override
-    public String toString() {
-        return  super.toString()+"Silla " +
-                "material='" + material + '\'';
+    public void mostrarProducto() {
+        super.mostrarProducto();
+        System.out.printf(" %5s ",this.getMaterial());
     }
+
+//    @Override
+//    public String toString() {
+//        return  super.toString()+"Silla " +
+//                "material='" + material + '\'';
+//    }
 }

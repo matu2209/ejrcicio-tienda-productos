@@ -1,5 +1,5 @@
-package Carrito;
-import Producto.*;
+package carrito;
+import producto.*;
 
 public class Items {
     private Producto producto;

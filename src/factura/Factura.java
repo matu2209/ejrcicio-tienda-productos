@@ -1,12 +1,9 @@
-package Factura;
-import Cliente.Cliente;
-import Producto.*;
+package factura;
+import cliente.Cliente;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import Carrito.*;
+
+import carrito.*;
 
 public class Factura {
     private static int contId=0;
@@ -29,7 +26,7 @@ public class Factura {
 
         System.out.printf("Factura numero %20s Fecha %10s\n", this.id,this.fecha);
         this.carrito.mostrarCarrito();
-        System.out.printf("Total %40.2f",this.monto);
+        System.out.printf("Total %40.2f\n",this.monto);
 
 
 

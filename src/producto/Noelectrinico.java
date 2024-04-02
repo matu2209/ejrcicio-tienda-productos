@@ -1,4 +1,4 @@
-package Producto;
+package producto;
 
 public class Noelectrinico extends Producto{
     private String marca;
@@ -17,9 +17,15 @@ public class Noelectrinico extends Producto{
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "Noelectrinico " +
-                "marca='" + marca + '\'' +
-                " ";
+    public void mostrarProducto() {
+        super.mostrarProducto();
+        System.out.printf(" %15s ",this.getMarca());
     }
+
+//    @Override
+//    public String toString() {
+//        return super.toString() + "Noelectrinico " +
+//                "marca='" + marca + '\'' +
+//                " ";
+//    }
 }

@@ -1,4 +1,4 @@
-package Producto;
+package producto;
 
 public class Mouse extends Electronico{
 
@@ -28,9 +28,13 @@ public class Mouse extends Electronico{
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "Mouse " +
-                "gamer=" + gamer +
-                ", iluminado=" + iluminado;
+    public void mostrarProducto() {
+        super.mostrarProducto();
+        System.out.printf("%10s %10s\n",this.isGamer() ? "Gamer, " : "No gamer, ",this.isIluminado() ? "Iluminado" : "sin iluminacion");
     }
+//    public String toString() {
+//        return super.toString() + "Mouse " +
+//                "gamer=" + gamer +
+//                ", iluminado=" + iluminado;
+//    }
 }

@@ -1,4 +1,4 @@
-package Producto;
+package producto;
 
 public class Pantalla extends Electronico{
 
@@ -18,8 +18,13 @@ public class Pantalla extends Electronico{
     }
 
     @Override
-    public String toString() {
-        return super.toString() +
-                "pulgadas=" + pulgadas;
+    public void mostrarProducto() {
+        super.mostrarProducto();
+        System.out.printf(" Pulgadas %10d\n",this.getPulgadas());
     }
+//    @Override
+//    public String toString() {
+//        return super.toString() +
+//                "pulgadas=" + pulgadas;
+//    }
 }
