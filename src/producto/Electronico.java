@@ -1,4 +1,4 @@
-package Producto;
+package producto;
 
 public class Electronico extends Producto {//agreagar abstrac para no poder crear isntancia de electronica par ano electronica
     private String marca;
@@ -18,8 +18,14 @@ public class Electronico extends Producto {//agreagar abstrac para no poder crea
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "Categoria Electronico " +
-                "marca='" + marca + '\''+", ";
+    public void mostrarProducto() {
+        super.mostrarProducto();
+        System.out.printf(" %15s ",this.getMarca());
     }
+
+//    @Override
+//    public String toString() {
+//        return super.toString() + "Categoria Electronico " +
+//                "marca='" + marca + '\''+", ";
+//    }
 }

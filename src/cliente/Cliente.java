@@ -1,4 +1,4 @@
-package Cliente;
+package cliente;
 
 import java.util.Objects;
 
@@ -6,7 +6,7 @@ public class Cliente {
 
     private static int contId=0;
     private int id;
-    private final long dni;
+    private final long dni;//hacer esta la clave y verificar que no este cargado ese dni!
     private String nombre;
     private String apellido;
     private String email;
@@ -22,6 +22,10 @@ public class Cliente {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public long getDni() {
@@ -48,6 +52,9 @@ public class Cliente {
         this.email = email;
     }
 
+    public void mostrarCliente() {
+        System.out.printf("%5d %10d %15s %15s %25s\n",this.getId(),this.getDni(),this.getNombre(),this.getApellido(),this.getEmail());
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,13 +68,13 @@ public class Cliente {
         return Objects.hash(nombre);
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Cliente{" +
+//                "id=" + id +
+//                ", nombre='" + nombre + '\'' +
+//                ", apellido='" + apellido + '\'' +
+//                ", email='" + email + '\'' +
+//                '}';
+//    }
 }

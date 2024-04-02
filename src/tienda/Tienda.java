@@ -1,14 +1,12 @@
-package Tienda;
+package tienda;
 
-import Producto.*;
-import Cliente.*;
-import Factura.*;
-import Carrito.*;
+import producto.*;
+import cliente.*;
+import factura.*;
+import carrito.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Tienda {
@@ -28,7 +26,8 @@ public class Tienda {
     }
 
     public void agregarCliente(){
-        String nombre, apellido,email; long dni;
+        String nombre, apellido,email;
+        long dni;
         Scanner lectura = new Scanner(System.in);
         System.out.println("Ingrese el DNI del usuario");
         dni = lectura.nextLong(); lectura.nextLine();
@@ -223,8 +222,10 @@ public class Tienda {
     }
 
     public void mostrarTodosClientes(){
+        System.out.printf("%5s %10s %15s %15s %25s\n","ID","DNI","NOMBRE","APELLIDO","EMAIL");
         for (Cliente cliente : this.clientes){
-            System.out.println(cliente);
+
+            cliente.mostrarCliente();
         }
     }
 
@@ -242,17 +243,21 @@ public class Tienda {
 
     public void mostrarProductosElectronicos(){
         System.out.println("Productos electronicos");
+        System.out.printf("%5s %20s %10s %5s %10s %20s\n","ID","NOMBRE PRODUCTO","PRECIO","CANT","MARCA","ESPECIFICACIONES");
         for (Producto producto: this.productos){
-            if (producto instanceof Electronico && producto.getCantidad()>0)
-                System.out.println("\t"+producto);
+            if (producto instanceof Electronico && producto.getCantidad()>0) {
+                producto.mostrarProducto();
+            }
         }
     }
 
     public void mostrarProductosNoElectronicos(){
         System.out.println("Productos no electronicos");
+        System.out.printf("%5s %20s %10s %5s %10s %20s\n","ID","NOMBRE PRODUCTO","PRECIO","CANT","MARCA","ESPECIFICACIONES");
         for (Producto producto:this.productos){
-            if (producto instanceof Noelectrinico && producto.getCantidad()>0)
-                System.out.println("\t"+producto);
+            if (producto instanceof Noelectrinico && producto.getCantidad()>0) {
+                producto.mostrarProducto();
+            }
         }
     }
     public void vender(){ //ahora seria buscarProducto-> mandar producto y cantidad al carrito --> carrito valida y queda a la espera de mas items

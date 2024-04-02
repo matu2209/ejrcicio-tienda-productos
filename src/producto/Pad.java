@@ -1,4 +1,4 @@
-package Producto;
+package producto;
 
 public class Pad extends Noelectrinico{
 
@@ -18,8 +18,13 @@ public class Pad extends Noelectrinico{
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "Pad " +
-                "tamano=" + tamano;
+    public void mostrarProducto() {
+        super.mostrarProducto();
+        System.out.printf(" tamano pad %5d ",this.getTamano());
     }
+//    @Override
+//    public String toString() {
+//        return super.toString() + "Pad " +
+//                "tamano=" + tamano;
+//    }
 }

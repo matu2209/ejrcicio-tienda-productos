@@ -1,5 +1,5 @@
-package Carrito;
-import Producto.*;
+package carrito;
+import producto.*;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class Carrito {
     private ArrayList<Items> carrito;
 
     public Carrito() {
-        this.carrito = new ArrayList<Items>();
+        this.carrito = new ArrayList<>();
     }
 
     public String agregarProducto(Producto producto, int cantidad){
@@ -33,7 +33,7 @@ public class Carrito {
     }
     public void mostrarCarrito(){
         //System.out.printf("Producto\t\t\tCantidad\t\t\tPrecio unitario\t\t\tTotal\n");
-        System.out.printf("%20s %20s %20S %20s\n","Producto","Cantidad","Precio Unitario","Total");
+        System.out.printf("%20s %20s %20S %20s\n", "producto","Cantidad","Precio Unitario","Total");
         for (Items item:this.carrito){
             //System.out.printf("%s\t\t\t%d\t\t\t\t%.2f\t\t\t\t%.2f\n",item.getProducto().getNombre(),item.getCantidad(),item.getProducto().getPrecio(),item.getSubTotal());
             System.out.printf("%20s %20d %20.2f %20.2f\n",item.getProducto().getNombre(),item.getCantidad(),item.getProducto().getPrecio(),item.getSubTotal());

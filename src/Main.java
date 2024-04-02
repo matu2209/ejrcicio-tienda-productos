@@ -1,8 +1,6 @@
-import Carrito.Carrito;
-import Factura.*;
-import Producto.*;
-import Cliente.*;
-import Tienda.*;
+import producto.*;
+import cliente.*;
+import tienda.*;
 
 public class Main {
     public static void main(String[] args) {
